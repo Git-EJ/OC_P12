@@ -97,4 +97,111 @@ body ::-webkit-scrollbar {
   display: none;
 }
 
+.header_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: 91px;
+  background: #000;
+  padding: 1.2rem 1.8rem;
+}
+.header_logo_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: fit-content;
+  height: 100%;
+  margin-right: 1rem;
+}
+.header_logo_img svg {
+  width: 58px;
+  height: 58px;
+}
+.header_logo_img path:first-child {
+  fill: #FF0101;
+}
+.header_logo_img path:nth-child(2) {
+  fill: #000;
+}
+.header_logo_img path:nth-child(3) {
+  fill: #FF0101;
+}
+.header_logo_img path:last-child {
+  fill: #000;
+}
+.header_logo_text {
+  color: #FF0101;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-left: 0.7rem;
+}
+.header_nav_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-grow: 1;
+  height: 100%;
+}
+.header_nav_item {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.navbar_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 117px;
+  height: 933px;
+  background: #000;
+}
+.navbar_icons_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  gap: 1.25rem;
+}
+.navbar_icon_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border-radius: 6px;
+}
+.navbar_icon_container svg {
+  width: 36px;
+  height: 32px;
+}
+.navbar_icon_container path:first-child,
+.navbar_icon_container path:last-child {
+  fill: #FF0101;
+}
+.navbar_text_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 138px;
+  height: auto;
+  transform: rotate(-90deg) translateX(-12rem);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
 /*# sourceMappingURL=style.css.map */

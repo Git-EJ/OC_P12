@@ -1,0 +1,46 @@
+.navbar {
+
+  &_wrapper {
+    @include flex_center_column;
+    width: 117px;
+    height: 933px;
+    background: $dark_bg_color;
+  }
+
+  &_icons_container {
+    @include flex_center_column;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    gap: 1.25rem;
+  }
+
+  &_icon_container {
+    @include flex_center;
+    width: 64px;
+    height: 64px;
+    background: $secondary_color;
+    border-radius: 6px;
+
+    svg {
+      width: 36px;
+      height: 32px;
+    }
+
+    path:first-child,
+    path:last-child {
+      fill: $primary_color;
+    }
+  }
+
+  &_text_container {
+    @include flex_center;
+    flex-wrap: nowrap;
+    width: 138px;
+    height: auto; 
+    transform: rotate(-90deg) translateX(-12rem); // TODO : translate good practice ?
+    color: $secondary_text_color;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+}

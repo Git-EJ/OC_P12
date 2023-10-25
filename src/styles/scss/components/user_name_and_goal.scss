@@ -1,0 +1,19 @@
+.username_and_goal {
+
+  &_wrapper {
+    @include flex_center_column;
+    align-items: flex-start;
+    width: 100%;
+    border:  1px solid red; //DEV
+  }
+
+  &_firstname {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+
+  &_goal {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+}

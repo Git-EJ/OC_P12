@@ -278,11 +278,12 @@ body ::-webkit-scrollbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 33.33%;
+  width: 31%;
   height: 100%;
   border: 1px solid lime;
   background: #FBFBFB;
   text-align: center;
+  border-radius: 6px;
 }
 .main_content_right_block {
   display: flex;

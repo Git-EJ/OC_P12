@@ -48,11 +48,12 @@
         &_center,
         &_right {
           @include flex_center;
-          width: 33.33%;
+          width: 31%;
           height: 100%;
           border: 1px solid lime; //DEV
           background: $light_bg_color;
           text-align: center; //DEV
+          border-radius: $radius;
         }
       }
     }

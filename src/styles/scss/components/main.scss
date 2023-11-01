@@ -4,26 +4,31 @@
     @include flex_center_row;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 100%;
   }
 
   &_content {
+
     &_wrapper {
-      margin: 4.2rem 6.7rem;  
+      margin: 4.2rem 6rem; 
+      flex: 1;
     }
 
     &_left_right_block_container {
       @include flex_center_row;
       justify-content: space-between;
       margin-top: 4.8rem;
+      width: 100%;
     }
     
     &_left_block {
       @include flex_center_column;
-      width: 835px;
+      width: 75%;
       height: auto;
       margin-right: 1rem;
       
       &_up {
+        @include flex_center;
         height: 320px;
         width: 100%;
         border: 1px solid red; //DEV
@@ -42,9 +47,12 @@
         &_left,
         &_center,
         &_right {
-          width: 258px;
+          @include flex_center;
+          width: 33.33%;
           height: 100%;
           border: 1px solid lime; //DEV
+          background: $light_bg_color;
+          text-align: center; //DEV
         }
       }
     }
@@ -52,8 +60,10 @@
     &_right_block {
       @include flex_center_column;
       align-self: stretch; // same height as parent (main_content_left_right_block_container) 
-      width:258px;
+      justify-content: space-between;
       border: 1px solid red; //DEV
+      padding: 0.5rem; //TODO REMOVE
+      width: 25%;
 
     }
   }

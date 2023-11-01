@@ -3,14 +3,18 @@ $primary_color_darken : #E60000;
 $secondary_color : #fff; 
 $tertiary_color : #282D30;
 
-$calories_color : #FF0101;
-$proteins_color : #4AB8FF;
-$carbohydrates_color : #FDCC0C;
-$lipids_color : #FD5181;
+$calories_color : rgb(255, 1, 1);
+$proteins_color : rgb(74, 184, 255);
+$carbohydrates_color : rgb(253, 204, 12);
+$lipids_color : rgb(253, 81, 129);
 
 $light_bg_color : #FBFBFB;
+// $light_bg_color : #d9d3d3; //DEV REMOVE
 $dark_bg_color : #000;
 
 $primary_text_color : #FF0101; 
 $secondary_text_color : #fff;
 $tertiary_text_color : #74798C;
+
+
+$radius : 6px;

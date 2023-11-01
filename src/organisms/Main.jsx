@@ -1,6 +1,8 @@
 import NavBar from "../molecules/NavBar";
 import UserNameAndGoal from "../molecules/UserNameAndGoal";
 import UserActivity from "../molecules/UserActivity";
+import UserKeysData from "../molecules/UserKeysData";
+
 
 const Main = () => {
   return (
@@ -32,7 +34,7 @@ const Main = () => {
             </div>
 
             <div className="main_content_right_block"> 
-              <p>KEY DATA</p>
+              <UserKeysData /> 
             </div>
           </div>
 

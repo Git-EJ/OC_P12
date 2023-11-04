@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+src/lib/Mocked.jsx
+src/context/DataContext.jsx

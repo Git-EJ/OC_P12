@@ -2,16 +2,18 @@ import NavBar from "../molecules/NavBar";
 import UserNameAndGoal from "../molecules/UserNameAndGoal";
 import UserActivity from "../molecules/UserActivity";
 import UserKeysData from "../molecules/UserKeysData";
-
+// import Api from "../lib/Api";
 
 const Main = () => {
+const firstName = 'toto'
+  
   return (
-    <div>
+    <>
       <main className="main_wrapper">
         <NavBar />
 
         <div className="main_content_wrapper">
-          <UserNameAndGoal firstName="Thomas" goal="perdre du poids 👏" />
+          <UserNameAndGoal firstName={ firstName } goal="perdre du poids 👏" />
           
           <div className="main_content_left_right_block_container">
             <div className="main_content_left_block">
@@ -40,7 +42,7 @@ const Main = () => {
 
         </div>
       </main>
-    </div>
+    </>
   )
 }
 

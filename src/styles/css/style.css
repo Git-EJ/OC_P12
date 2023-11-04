@@ -108,7 +108,7 @@ body ::-webkit-scrollbar {
   background: #000;
   padding: 1.2rem 1.8rem;
 }
-.header_logo_container {
+.header_logo_wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -118,27 +118,54 @@ body ::-webkit-scrollbar {
   height: 100%;
   margin-right: 1rem;
 }
-.header_logo_img svg {
+.header_logo_container {
+  position: relative;
   width: 58px;
   height: 58px;
 }
-.header_logo_img path:first-child {
+.header_logo_inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.86, 0.5, 0.9, 1);
+}
+.header_logo_rotate {
+  transform: rotateY(180deg);
+}
+.header_logo_img_front, .header_logo_img_back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.header_logo_img_front svg, .header_logo_img_back svg {
+  width: 100%;
+  height: 100%;
+}
+.header_logo_img_front path:first-child,
+.header_logo_img_front path:nth-child(3) {
   fill: #FF0101;
 }
-.header_logo_img path:nth-child(2) {
+.header_logo_img_front path:nth-child(2),
+.header_logo_img_front path:last-child {
   fill: #000;
 }
-.header_logo_img path:nth-child(3) {
-  fill: #FF0101;
+.header_logo_img_back {
+  transform: rotateY(180deg) scaleX(-1);
 }
-.header_logo_img path:last-child {
+.header_logo_img_back path:first-child,
+.header_logo_img_back path:nth-child(3) {
+  fill: #fff;
+}
+.header_logo_img_back path:nth-child(2),
+.header_logo_img_back path:last-child {
   fill: #000;
 }
 .header_logo_text {
-  color: #FF0101;
   font-size: 1.5rem;
   font-weight: 500;
   margin-left: 0.7rem;
+  color: #FF0101;
 }
 .header_nav_container {
   display: flex;

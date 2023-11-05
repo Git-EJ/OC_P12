@@ -1,22 +1,22 @@
-import { useParams } from "react-router-dom"
 import DATA from "../../public/data_mocked/data.json"
 
 const MockedApi = () => {
-  const { userId } = useParams()
-  console.log(userId)
+
+  const findData = (data, userId) => {
+    return data.find(user => user.id === +userId || user.userId === +userId);
+  }
 
 
   return {
-    getUserMainData : () => {
-      const toto =  DATA.USER_MAIN_DATA.find(user => user.id === userId)
-      console.log(toto);
-      return toto
-    },
+    getUserMainData : (userId) => { return findData(DATA.USER_MAIN_DATA, userId) },
     
-    getUserPerformance : () => {
-      return DATA.USER_PERFORMANCE.find(user => user.id === userId)
-    }
+    getUserActivity : (userId) => { return findData(DATA.USER_ACTIVITY, userId) },
+
+    getUserAverageSessions : (userId) => { return findData(DATA.USER_AVERAGE_SESSIONS, userId) },
+
+    getUserPerformance : (userId) => { return findData(DATA.USER_PERFORMANCE, userId) },
   }
 }
+
 
 export default MockedApi

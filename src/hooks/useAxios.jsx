@@ -1,29 +1,30 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const useAxios = (url) => {
-
   const [data, setData] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    setIsLoading(true)
-    axios
-      .get(url)
-      .then((res) => {
-        setData(res.data)
-      })
-      .catch((err) => {
-        setError(err)
-      })
-      .finally(() => {
+    const fetchData = async () => {
+      setIsLoading(true)
+      try {
+        const response = await axios.get(url)
+        setData(response.data);
+      } catch (err) {
+      setError(err || "ERROR : useAxios")
+      } finally {
         setIsLoading(false)
-      })
+        data && setError(null)
+      }
+    };
 
-  },[url])
+    fetchData();
 
-  return {data, isLoading, error}
+  },[url]) //TODO
+
+  return { data, isLoading, error }
 }
 
 export default useAxios;

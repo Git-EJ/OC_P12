@@ -2,10 +2,12 @@ import NavBar from "../molecules/NavBar";
 import UserNameAndGoal from "../molecules/UserNameAndGoal";
 import UserActivity from "../molecules/UserActivity";
 import UserKeysData from "../molecules/UserKeysData";
-// import Api from "../lib/Api";
+import Api from "../lib/Api";
+
 
 const Main = () => {
-const firstName = 'toto'
+const firstName = Api().getUserMainData()?.data?.userInfos?.firstName
+const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
   
   return (
     <>
@@ -13,7 +15,7 @@ const firstName = 'toto'
         <NavBar />
 
         <div className="main_content_wrapper">
-          <UserNameAndGoal firstName={ firstName } goal="perdre du poids 👏" />
+          <UserNameAndGoal firstName={ firstName } goal= { goal } />
           
           <div className="main_content_left_right_block_container">
             <div className="main_content_left_block">

@@ -7,7 +7,6 @@ import Api from "../lib/Api";
 const Main = () => {
 
 const api = Api()
-
 const userMainData = api.getUserMainData().data
 const userActivity = api.getUserActivity().data
 
@@ -50,7 +49,12 @@ const keyData = userMainData?.keyData
             </div>
 
             <div className="main_content_right_block"> 
-              <UserKeysData calorieCount = {keyData?.calorieCount} /> 
+              <UserKeysData 
+                calorieCount = {keyData?.calorieCount}
+                proteinCount={keyData?.proteinCount}
+                carbohydrateCount={keyData?.carbohydrateCount}
+                lipidCount={keyData?.lipidCount}
+              /> 
             </div>
           </div>
 

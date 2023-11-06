@@ -1,31 +1,26 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Logo from "../atoms/Logo.jsx"
-import Api from "../lib/Api.jsx"
+import ApiContext from "../context/ApiContext.jsx"
 
 
 const HeaderLogo = () => {
 
   const [isFront, setIsFront] = useState(false)
-
-  const handleClick = () => { 
-    setIsFront(!isFront)
-    console.log(isFront);
-  }
-
+  const { toggleApi} = useContext(ApiContext)
+  
   const logoRotate = isFront ? "header_logo_rotate" : ""
 
 
-  // TOTO DEV REMOVE
-  const mockedApiInstance = Api();
-  const userMain = mockedApiInstance.getUserMainData();
-  const userActivity = mockedApiInstance.getUserActivity();
-  const userAverage = mockedApiInstance.getUserAverageSessions();
-  const userPerf = mockedApiInstance.getUserPerformance();
-  console.log('userMain', userMain);
-  console.log('userActivity', userActivity);
-  console.log('userAverage', userAverage);
-  console.log('userPerf', userPerf);
+  const handleClick = () => { 
+    setIsFront(!isFront)
+    toggleApi()
+  }
 
+  //// TODO REMOVE
+  // useEffect(() => {
+  //   console.log(isFront);
+  //   console.log(currentApi);
+  // }, [isFront, currentApi])
 
   return (
     <div className= "header_logo_wrapper" >

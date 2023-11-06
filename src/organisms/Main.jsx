@@ -7,8 +7,8 @@ import Api from "../lib/Api";
 const Main = () => {
 
 const api = Api()
-const userMainData = api.getUserMainData().data
-const userActivity = api.getUserActivity().data
+const userMainData = api.getUserMainData() 
+const userActivity = api.getUserActivity()
 
 const firstName = userMainData?.userInfos?.firstName
 

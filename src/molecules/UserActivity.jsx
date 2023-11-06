@@ -86,7 +86,6 @@ UserActivity.propTypes = {
 CustomTooltip.propTypes = {
   active: PropTypes.bool,
   payload: PropTypes.array,
-  label: PropTypes.string,
 };
 
 export default UserActivity

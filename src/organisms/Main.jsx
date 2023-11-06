@@ -9,6 +9,8 @@ const Main = () => {
 const api = Api()
 const userMainData = api.getUserMainData() 
 const userActivity = api.getUserActivity()
+const userAverageSessions = api.getUserAverageSessions()
+const userPerformance = api.getUserPerformance()
 
 const firstName = userMainData?.userInfos?.firstName
 

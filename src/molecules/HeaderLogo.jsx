@@ -6,7 +6,7 @@ import ApiContext from "../context/ApiContext.jsx"
 const HeaderLogo = () => {
 
   const [isFront, setIsFront] = useState(false)
-  const { toggleApi} = useContext(ApiContext)
+  const { toggleApi } = useContext(ApiContext)
   
   const logoRotate = isFront ? "header_logo_rotate" : ""
 

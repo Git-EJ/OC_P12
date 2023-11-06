@@ -3,8 +3,10 @@
   &_wrapper {
     @include flex_center_column;
     width: 117px;
-    height: 933px;
+    height: calc(100vh - 91px);
     background: $dark_bg_color;
+    position: sticky;
+    top:91px;
   }
 
   &_icons_container {
@@ -35,10 +37,12 @@
 
   &_text_container {
     @include flex_center;
+    position: fixed;
+    bottom: 5.5rem;
     flex-wrap: nowrap;
     width: 138px;
     height: auto; 
-    transform: rotate(-90deg) translateX(-12rem); // TODO : translate good practice ?
+    transform: rotate(-90deg); // TODO : translate good practice ?
     color: $secondary_text_color;
     font-size: 0.75rem;
     font-weight: 500;

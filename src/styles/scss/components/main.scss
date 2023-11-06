@@ -10,7 +10,8 @@
   &_content {
 
     &_wrapper {
-      margin: 4.2rem 6rem; 
+      margin: 2rem 4rem 1rem 4rem;
+      @include flex_center_column;
       flex: 1;
     }
 

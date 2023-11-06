@@ -107,6 +107,8 @@ body ::-webkit-scrollbar {
   height: 91px;
   background: #000;
   padding: 1.2rem 1.8rem;
+  position: sticky;
+  top: 0;
 }
 .header_logo_wrapper {
   display: flex;
@@ -188,8 +190,10 @@ body ::-webkit-scrollbar {
   align-items: center;
   flex-direction: column;
   width: 117px;
-  height: 933px;
+  height: calc(100vh - 91px);
   background: #000;
+  position: sticky;
+  top: 91px;
 }
 .navbar_icons_container {
   display: flex;
@@ -222,10 +226,12 @@ body ::-webkit-scrollbar {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  bottom: 5.5rem;
   flex-wrap: nowrap;
   width: 138px;
   height: auto;
-  transform: rotate(-90deg) translateX(-12rem);
+  transform: rotate(-90deg);
   color: #fff;
   font-size: 0.75rem;
   font-weight: 500;
@@ -259,7 +265,11 @@ body ::-webkit-scrollbar {
   width: 100%;
 }
 .main_content_wrapper {
-  margin: 4.2rem 6rem;
+  margin: 2rem 4rem 1rem 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   flex: 1;
 }
 .main_content_left_right_block_container {

@@ -1,6 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
-import Api from "../lib/Api";
 
 // // styled-components
 // const ToolTipWrapper = styled('div')`
@@ -21,10 +20,7 @@ const CustomTooltip = ({ active, payload }) => {
 }
 
 
-const UserActivity = () => {
-
-  const userData = Api().getUserActivity()?.data?.sessions//without optional chaining return 404 
-  console.log('USER-SESSIONS', userData)
+const UserActivity = ({ activitySessions }) => {
 
   // const kgMinValue = userData.reduce((acc, curr) => acc < curr.kilogram ? acc : curr.kilogram, userData[0].kilogram)
   // // console.log('minV', kgMinValue);
@@ -41,7 +37,7 @@ const UserActivity = () => {
     <div className="user_activity_container">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
-          data = {userData}
+          data = {activitySessions}
           
           margin={{
             top: 30,
@@ -83,6 +79,9 @@ const UserActivity = () => {
   )
 }
 
+UserActivity.propTypes = {
+  activitySessions: PropTypes.array.isRequired
+}
 
 CustomTooltip.propTypes = {
   active: PropTypes.bool,

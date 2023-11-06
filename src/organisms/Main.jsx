@@ -4,11 +4,23 @@ import UserActivity from "../molecules/UserActivity";
 import UserKeysData from "../molecules/UserKeysData";
 import Api from "../lib/Api";
 
-
 const Main = () => {
-const firstName = Api().getUserMainData()?.data?.userInfos?.firstName
+
+const api = Api()
+
+const userMainData = api.getUserMainData().data
+const userActivity = api.getUserActivity().data
+
+const firstName = userMainData?.userInfos?.firstName
+
 const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
+
+const activitySessions = userActivity?.sessions
+
+const keyData = userMainData?.keyData
   
+
+
   return (
     <>
       <main className="main_wrapper">
@@ -20,7 +32,7 @@ const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
           <div className="main_content_left_right_block_container">
             <div className="main_content_left_block">
               <div className="main_content_left_block_up">
-                <UserActivity />
+                <UserActivity activitySessions={ activitySessions} />
               </div>
 
               <div className="main_content_left_block_down">
@@ -38,7 +50,7 @@ const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
             </div>
 
             <div className="main_content_right_block"> 
-              <UserKeysData /> 
+              <UserKeysData calorieCount = {keyData?.calorieCount} /> 
             </div>
           </div>
 
@@ -47,5 +59,8 @@ const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
     </>
   )
 }
+
+
+
 
 export default Main

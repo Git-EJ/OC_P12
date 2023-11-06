@@ -8,16 +8,15 @@ const FirstNameAndGoal = ({ firstName, goal }) => {
         <p>{`Bonjour ${firstName}`}</p>
       </div>
       <div className="username_and_goal_goal">
-        {/*TODO: remove Votre objectif*/}
-        <p>{`Votre objectif : ${goal}`}</p> 
+        <p>{goal}</p> 
       </div>
     </div>
   )
 }
 
 FirstNameAndGoal.propTypes = {
-  firstName: PropTypes.string.isRequired,
-  goal: PropTypes.string.isRequired,
+  firstName: PropTypes.string,
+  goal: PropTypes.string,
 }
 
 export default FirstNameAndGoal;

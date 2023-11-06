@@ -1,4 +1,4 @@
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 const KeyData = ({ icon, color, itemCount, unit, label }) => {
 
@@ -12,7 +12,7 @@ const KeyData = ({ icon, color, itemCount, unit, label }) => {
       </div>
       <div className="key_data_container_text">
         <div className="key_data_container_text_counter">
-          {itemCount.toLocaleString('en-US')}{unit}
+          {itemCount && itemCount.toLocaleString('en-US')}{unit}
         </div>
         <div className="key_data_container_text_label">
           {label}
@@ -23,10 +23,10 @@ const KeyData = ({ icon, color, itemCount, unit, label }) => {
 }
 
 KeyData.propTypes = {
-  color: propTypes.string,
-  icon: propTypes.element.isRequired,  // element for react component
-  itemCount: propTypes.number.isRequired,
-  unit: propTypes.string.isRequired,
-  label: propTypes.string.isRequired
+  color: PropTypes.string,
+  icon: PropTypes.element.isRequired,
+  itemCount: PropTypes.number.isRequired,
+  unit: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired
 }
 export default KeyData

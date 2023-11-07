@@ -56,6 +56,10 @@
           text-align: center; //DEV
           border-radius: $radius;
         }
+
+        &_left{
+          background: $primary_color;
+        }
       }
     }
 

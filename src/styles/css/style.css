@@ -322,6 +322,9 @@ body ::-webkit-scrollbar {
   text-align: center;
   border-radius: 6px;
 }
+.main_content_left_block_down_left {
+  background: #FF0101;
+}
 .main_content_right_block {
   display: flex;
   justify-content: center;
@@ -434,6 +437,33 @@ body ::-webkit-scrollbar {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.user_average_sessions_container {
+  width: 100%;
+  height: 100%;
+}
+.user_average_sessions_custom_tooltip {
+  width: fit-content !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #fff !important;
+  border: none !important;
+  color: black !important;
+  font-size: 0.7rem;
+  font-weight: 500 !important;
+  padding: 0.5rem !important;
+}
+.user_average_sessions_custom_legend {
+  width: 78%;
+  text-align: start;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.504);
+}
+.user_average_sessions_custom_cursor {
+  opacity: 0.5;
+  fill: #E60000;
 }
 
 /*# sourceMappingURL=style.css.map */

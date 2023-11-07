@@ -1,0 +1,32 @@
+.user_average_sessions {
+  &_container {
+    width: 100%;
+    height: 100%;
+  }
+
+  &_custom_tooltip {
+    width:fit-content !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: $secondary_color !important;
+    border: none !important;
+    color: black !important;
+    font-size: 0.7rem;
+    font-weight: 500 !important;
+    padding: 0.5rem !important;
+  }
+
+  &_custom_legend {
+    width:78%;
+    text-align: start;
+    font-size: 1rem;
+    font-weight: 500;
+    color:rgba(255, 255, 255, 0.504);
+  }
+
+  //TODO couvre le AxisX tick si opacity 1
+  &_custom_cursor {
+    opacity: 0.5;
+    fill: #E60000;
+  }
+}

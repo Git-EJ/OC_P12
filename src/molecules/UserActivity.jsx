@@ -87,7 +87,6 @@ const UserActivity = ({ activitySessions }) => {
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data = {activitySessions}
-          
           margin={{
             top: 80,
             right: 5,

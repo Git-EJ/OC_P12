@@ -1,8 +1,10 @@
+import Api from "../lib/Api";
 import NavBar from "../molecules/NavBar";
 import UserNameAndGoal from "../molecules/UserNameAndGoal";
 import UserActivity from "../molecules/UserActivity";
 import UserKeysData from "../molecules/UserKeysData";
-import Api from "../lib/Api";
+import UserAverageSessions from "../molecules/UserAverageSessions";
+
 
 const Main = () => {
 
@@ -19,6 +21,8 @@ const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
 const activitySessions = userActivity?.sessions
 
 const keyData = userMainData?.keyData
+
+const averageSessions = userAverageSessions?.sessions
   
 
 
@@ -38,7 +42,7 @@ const keyData = userMainData?.keyData
 
               <div className="main_content_left_block_down">
                 <div className="main_content_left_block_down_left">
-                  <p>AVERAGE SESSION</p>
+                  <UserAverageSessions averageSessions={ averageSessions } />
                 </div>
                 <div className="main_content_left_block_down_center">
                   <p>PERFORMANCE</p>

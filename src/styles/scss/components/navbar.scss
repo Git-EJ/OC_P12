@@ -37,12 +37,12 @@
 
   &_text_container {
     @include flex_center;
-    position: fixed;
-    bottom: 5.5rem;
     flex-wrap: nowrap;
     width: 138px;
     height: auto; 
-    transform: rotate(-90deg); // TODO : translate good practice ?
+    position: fixed;
+    bottom: 5.5rem;
+    transform: rotate(-90deg);
     color: $secondary_text_color;
     font-size: 0.75rem;
     font-weight: 500;

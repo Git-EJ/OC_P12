@@ -25,7 +25,9 @@ const KeyData = ({ icon, color, itemCount, unit, label }) => {
 KeyData.propTypes = {
   color: PropTypes.string,
   icon: PropTypes.element.isRequired,
-  itemCount: PropTypes.number.isRequired,
+  //TODO
+  itemCount: PropTypes.number,
+  // itemCount: PropTypes.number.isRequired,
   unit: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired
 }

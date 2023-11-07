@@ -33,7 +33,7 @@ const keyData = userMainData?.keyData
           <div className="main_content_left_right_block_container">
             <div className="main_content_left_block">
               <div className="main_content_left_block_up">
-                <UserActivity activitySessions={ activitySessions} />
+                <UserActivity activitySessions={ activitySessions}  />
               </div>
 
               <div className="main_content_left_block_down">

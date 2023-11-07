@@ -19,10 +19,16 @@ const UserKeysData = ({ calorieCount, proteinCount, carbohydrateCount, lipidCoun
 }
 
 UserKeysData.propTypes = {
-  calorieCount: PropTypes.number.isRequired,
-  proteinCount: PropTypes.number.isRequired,
-  carbohydrateCount: PropTypes.number.isRequired,
-  lipidCount: PropTypes.number.isRequired
+  calorieCount: PropTypes.number,
+  proteinCount: PropTypes.number,
+  carbohydrateCount: PropTypes.number,
+  lipidCount: PropTypes.number
+
+  //TODO
+  // calorieCount: PropTypes.number.isRequired,
+  // proteinCount: PropTypes.number.isRequired,
+  // carbohydrateCount: PropTypes.number.isRequired,
+  // lipidCount: PropTypes.number.isRequired
 }
 
 export default UserKeysData

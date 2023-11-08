@@ -4,6 +4,7 @@ import UserNameAndGoal from "../molecules/UserNameAndGoal";
 import UserActivity from "../molecules/UserActivity";
 import UserKeysData from "../molecules/UserKeysData";
 import UserAverageSessions from "../molecules/UserAverageSessions";
+import UserPerformance from "../molecules/UserPerformance"
 
 
 const Main = () => {
@@ -22,7 +23,11 @@ const activitySessions = userActivity?.sessions
 
 const keyData = userMainData?.keyData
 
-const averageSessions = userAverageSessions?.sessions
+const averageSessions = userAverageSessions?.sessions 
+
+const performanceKind =  userPerformance?.kind
+
+const performanceData = userPerformance?.data
   
 
 
@@ -45,7 +50,7 @@ const averageSessions = userAverageSessions?.sessions
                   <UserAverageSessions averageSessions={ averageSessions } />
                 </div>
                 <div className="main_content_left_block_down_center">
-                  <p>PERFORMANCE</p>
+                  <UserPerformance performanceKind={ performanceKind } performanceData={ performanceData } />
                 </div>
                 <div className="main_content_left_block_down_right">
                   <p>TODAY SCORE</p>

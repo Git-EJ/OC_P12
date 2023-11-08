@@ -1,0 +1,27 @@
+import styled from 'styled-components';
+
+// TODO STYLED COMPONENT ET SASS IMBRIQUE
+const Root = styled.div`
+  &.username_and_goal_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    border:  1px solid red; //DEV
+  }
+
+  & .username_and_goal_firstname {
+    font-size: 3rem;
+    font-weight: 500;
+    color: blue !important;
+  }
+
+  & .username_and_goal_goal {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+`
+
+
+export default Root

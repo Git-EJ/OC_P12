@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Rectangle } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
 
 const dayNumberToDayLetter = {
@@ -13,10 +13,9 @@ const dayNumberToDayLetter = {
 }  
 
 const customXaxis = (day) => {
-  if (day && day>=1 && day<=7) {
-    return dayNumberToDayLetter[day]
-  }
-  //TODO multiple call for DAY
+  console.log('DAY', day);
+  if (dayNumberToDayLetter[day]) return dayNumberToDayLetter[day]
+  
   console.log('UserAverageSessions => customXaxis ERROR')
   return dayNumberToDayLetter.error
 }
@@ -38,16 +37,17 @@ const customLegend = () => {
   )
 }
 
-const CustomCursor = ({ points }) => {
+const CustomCursor = ({ points }) => {     // opacity layer
   const { x } = points[0]
   return (
-    <rect  x={x} width={250} height={250} className='user_average_sessions_custom_cursor' /> // Rectangle recharts properties
+    <rect  x={x} width={250} height={250} className='user_average_sessions_custom_cursor' /> 
   )
 }
 
 
-
 const UserAverageSessions = ({ averageSessions }) => {
+
+  if (!averageSessions) return(<> </>)
 
   return (
     <div className='user_average_sessions_container'>
@@ -71,7 +71,7 @@ const UserAverageSessions = ({ averageSessions }) => {
             tickMargin={20}
             tickFormatter={customXaxis}
             stroke='rgba(255, 255, 255, 0.504)'
-            textAnchor=''
+            textAnchor='end'
           />
         
           <YAxis 
@@ -94,7 +94,7 @@ const UserAverageSessions = ({ averageSessions }) => {
           
           <Line 
             dataKey="sessionLength" 
-            type="custom" //TODO basis??
+            type="custom" // basis for round line
             stroke="url(#lineGradient)"
             strokeWidth={2}
             activeDot={{ 

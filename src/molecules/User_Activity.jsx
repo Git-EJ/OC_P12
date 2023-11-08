@@ -1,8 +1,15 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
-// import styled from 'styled-components';
+import styled from 'styled-components';
+const StyledChart = styled(BarChart)`
+  & li:first-child {
+    flex: 1;
+    text-align: start;
+  }
+`
+
 // // styled-components
 // const ToolTipWrapper = styled.div`
 //   display: flex;
@@ -47,30 +54,6 @@ const CustomTooltip = ({ active, payload }) => {
 
 
 const UserActivity = ({ activitySessions }) => {
-  
-  const customLegend = () => {
-    const item1 =  document.querySelector('.recharts-legend-item.legend-item-1')
-    const item2 =  document.querySelector('.recharts-legend-item.legend-item-2')
-    const wrapper = document.querySelector('.recharts-legend-wrapper > ul')
-    
-    if (item1 && item2 && wrapper) {
-      const newDiv = document.createElement('div');
-      newDiv.classList.add('legend_item_1_2_container');
-      wrapper.appendChild(newDiv);
-      newDiv.appendChild(item1);
-      newDiv.appendChild(item2);
-      console.log(item1, item2, newDiv, wrapper);
-    }
-  }
-
-  useEffect(() => {
-    //TODO obligé de sauvegarder le code pour prendre en compte les appenchilds
-    const timer = setTimeout(() => {
-      customLegend()
-    }, 1);
-    return () => clearTimeout(timer);
-  }, [])
-
 
   // const kgMinValue = activitySessions && activitySessions.reduce((acc, curr) => acc < curr?.kilogram ? acc : curr?.kilogram, activitySessions?.kilogram)
   // console.log('minV', kgMinValue);
@@ -85,7 +68,7 @@ const UserActivity = ({ activitySessions }) => {
   return (
     <div className="user_activity_container">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart
+        <StyledChart
           data = {activitySessions}
           margin={{
             top: 80,
@@ -127,7 +110,7 @@ const UserActivity = ({ activitySessions }) => {
             content={<CustomTooltip/>}
           />
 
-          <Legend 
+          <Legend
             // verticalAlign="top" 
             // align="right" 
             wrapperStyle={{top : '0', margin: '1rem 0 0 0', fontSize: '0.8rem' }} 
@@ -141,7 +124,7 @@ const UserActivity = ({ activitySessions }) => {
 
           <Bar yAxisId="left" dataKey="kilogram" fill="rgba(40, 45, 48, 1)" barSize={10} radius={[10, 10, 0, 0]} />
           <Bar yAxisId="right" dataKey="calories" fill="#E60000" barSize={10} radius={[10, 10, 0, 0]} />
-        </BarChart>
+        </StyledChart>
       </ResponsiveContainer>
     </div>
   )

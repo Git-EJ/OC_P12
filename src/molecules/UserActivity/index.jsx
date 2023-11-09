@@ -1,29 +1,35 @@
 import { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
-import CustomTooltip from "./ToolTip"
+import CustomTooltip from "./CustomToolTip"
 import Root from './Styled';
 
 
 const UserActivity = ({ activitySessions }) => {
+
+  //FOR RIGHT Y AXIS VALUE SET IT TO MIN/AVERAGE/MAX
   const [kgMinValue, setKgMinValue] = useState(0)
   const [kgAverageValue, setKgAverageValue] = useState(0)
   const [kgMaxValue, setKgMaxValue] = useState(0)
 
   useEffect(() => {
     if (activitySessions) {
-      const minValue = activitySessions.reduce((acc, curr) => acc < curr?.kilogram ? acc : curr?.kilogram, activitySessions?.kilogram)
 
+      const minValue = activitySessions.reduce((acc, curr) => acc < curr?.kilogram ? acc : curr?.kilogram, activitySessions?.kilogram)
+      
       const averageValue = Math.round(activitySessions.reduce((acc, curr) => acc + curr.kilogram, 0) / activitySessions.length)
 
       const maxValue = activitySessions.reduce((acc, curr) => acc > curr?.kilogram ? acc : curr?.kilogram, 0)
-
+  
       setKgMinValue(Math.round(minValue)-1)
       setKgAverageValue(Math.round(averageValue))
       setKgMaxValue(Math.round(maxValue))
     }
   }, [activitySessions])
 
+
+
+  if (!activitySessions) return(<> </>)
 
   return (
     <Root className="user_activity_container">

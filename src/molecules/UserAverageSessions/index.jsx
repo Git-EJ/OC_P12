@@ -1,48 +1,11 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
+import Root from './styled';
+import CustomXaxis from './Custom/CustomXaxis';
+import CustomTooltip from './Custom/CustomToolTip';
+import CustomLegend from './Custom/CustomLegend';
+import CustomCursor from './Custom/CustomCursor';
 
-const dayNumberToDayLetter = {
-  1: 'L',
-  2: 'M',
-  3: 'M',
-  4: 'J',
-  5: 'V',
-  6: 'S',
-  7: 'D',
-  error : 'ER'
-}  
-
-const customXaxis = (day) => {
-  console.log('DAY', day);
-  if (dayNumberToDayLetter[day]) return dayNumberToDayLetter[day]
-  
-  console.log('UserAverageSessions => customXaxis ERROR')
-  return dayNumberToDayLetter.error
-}
-
-const CustomTooltip = ({ active, payload }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className='user_average_sessions_custom_tooltip'>
-        <p className="user_average_sessions_custom_tooltip_label">{`${payload[0].payload.sessionLength} min`}</p>
-      </div>
-    )
-  }
-  return null
-}
-
-const customLegend = () => {
-  return (
-    <div className="user_average_sessions_custom_legend">Durée moyenne des sessions</div>
-  )
-}
-
-const CustomCursor = ({ points }) => {     // opacity layer
-  const { x } = points[0]
-  return (
-    <rect  x={x} width={250} height={250} className='user_average_sessions_custom_cursor' /> 
-  )
-}
 
 
 const UserAverageSessions = ({ averageSessions }) => {
@@ -50,7 +13,7 @@ const UserAverageSessions = ({ averageSessions }) => {
   if (!averageSessions) return(<> </>)
 
   return (
-    <div className='user_average_sessions_container'>
+    <Root className='user_average_sessions_container'>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart 
           data={averageSessions}
@@ -69,7 +32,7 @@ const UserAverageSessions = ({ averageSessions }) => {
             axisLine={false} 
             tickLine={false}
             tickMargin={20}
-            tickFormatter={customXaxis}
+            tickFormatter={<CustomXaxis />}
             stroke='rgba(255, 255, 255, 0.504)'
             textAnchor='end'
           />
@@ -89,7 +52,7 @@ const UserAverageSessions = ({ averageSessions }) => {
           
           <Legend
             wrapperStyle={{ top:30 }}
-            content={customLegend}
+            content={<CustomLegend />}
           />
           
           <Line 
@@ -120,7 +83,7 @@ const UserAverageSessions = ({ averageSessions }) => {
         
         </LineChart>
       </ResponsiveContainer>
-    </div>
+    </Root>
   ) 
 }
 
@@ -129,15 +92,6 @@ UserAverageSessions.propTypes = {
   averageSessions: PropTypes.array
   //TODO
   // averageSessions: PropTypes.array.isRequired
-}
-
-CustomTooltip.propTypes = {
-  active: PropTypes.bool,
-  payload: PropTypes.array,
-};
-
-CustomCursor.propTypes = {
-  points: PropTypes.array,
 }
 
 export default UserAverageSessions

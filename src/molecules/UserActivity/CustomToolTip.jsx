@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const ToolTip = ({ active, payload }) => {
+const CustomToolTip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div className='custom_tooltip'>
@@ -12,9 +12,9 @@ const ToolTip = ({ active, payload }) => {
   return null
 }
 
-ToolTip.propTypes = {
+CustomToolTip.propTypes = {
   active: PropTypes.bool,
   payload: PropTypes.array,
 };
 
-export default ToolTip
+export default CustomToolTip

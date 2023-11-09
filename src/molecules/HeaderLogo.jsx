@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import Logo from "../atoms/Logo.jsx"
 import ApiContext from "../context/ApiContext.jsx"
 

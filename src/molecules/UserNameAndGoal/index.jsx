@@ -3,10 +3,16 @@ import Root from './Styled'
 
 
 const FirstNameAndGoal = ({ firstName, goal }) => {
+
+  if (!firstName && ! goal) return (<> </>)
+
+  
   return (
       <Root className="username_and_goal_wrapper">
-        <div className="username_and_goal_firstname">
-          <p>{`Bonjour ${firstName}`}</p>
+        <div className="username_and_goal_container">
+          {/* TODO good practice???? */}
+          <span className='sername_and_goal_hello'>Bonjour </span>
+          <span className='username_and_goal_firstname'>{firstName}</span>
         </div>
         <div className="username_and_goal_goal">
           <p>{goal}</p> 

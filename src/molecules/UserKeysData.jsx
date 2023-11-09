@@ -8,6 +8,8 @@ import PropTypes from 'prop-types'
 
 const UserKeysData = ({ calorieCount, proteinCount, carbohydrateCount, lipidCount }) => {
   
+  if(!calorieCount, !proteinCount, !carbohydrateCount, !lipidCount) return (<> </>)
+
   return (
     <>
       <KeyData icon={<Calories />} color={'rgba(255, 1, 1, 0.1)'} itemCount={calorieCount} unit={'kCal'} label={'Calories'} />

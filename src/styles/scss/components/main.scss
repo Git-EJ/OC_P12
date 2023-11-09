@@ -40,10 +40,10 @@
         @include flex_center_row;
         justify-content: space-between;
         margin-top: 1.9rem;
-        border: 1px solid red; //DEV
+        // border: 1px solid red; //DEV
         width: 100%;
         height: 263px;
-        padding: 0.5rem; //TODO REMOVE
+        // padding: 0.5rem; //TODO REMOVE
         
         &_left,
         &_center,
@@ -51,10 +51,11 @@
           @include flex_center;
           width: 31%;
           height: 100%;
-          border: 1px solid lime; //DEV
+          // border: 1px solid lime; //DEV
           background: $light_bg_color;
-          text-align: center; //DEV
+          // text-align: center; //DEV
           border-radius: $radius;
+          overflow: hidden;
         }
 
         &_left{

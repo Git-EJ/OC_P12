@@ -43,7 +43,8 @@ const Root = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: red;
+    align-items: center;
+    background-color: #E60000;
     color: #fff;
     fontweight: 400;
     font-size: 0.6rem;

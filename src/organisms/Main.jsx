@@ -5,6 +5,7 @@ import UserActivity from "../molecules/UserActivity";
 import UserKeysData from "../molecules/UserKeysData";
 import UserAverageSessions from "../molecules/UserAverageSessions";
 import UserPerformance from "../molecules/UserPerformance"
+import UserTodayScore from "../molecules/UserTodayScore";
 
 
 const Main = () => {
@@ -28,7 +29,8 @@ const averageSessions = userAverageSessions?.sessions
 const performanceKind =  userPerformance?.kind
 
 const performanceData = userPerformance?.data
-  
+
+const todayScore = userMainData?.todayScore ?? userMainData?.score
 
 
   return (
@@ -53,7 +55,7 @@ const performanceData = userPerformance?.data
                   <UserPerformance performanceKind={ performanceKind } performanceData={ performanceData } />
                 </div>
                 <div className="main_content_left_block_down_right">
-                  <p>TODAY SCORE</p>
+                  <UserTodayScore todayScore={ todayScore } /> 
                 </div>
               </div>
 

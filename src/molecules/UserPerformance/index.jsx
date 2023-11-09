@@ -24,16 +24,15 @@ const UserPerformance = ({performanceKind, performanceData}) => {
   if (!performanceKind && !performanceData) return (<> </>)
 
   const dataKindConvert = convertDataKind(performanceData, performanceKind)
-    console.log('DK', dataKindConvert);
+    // console.log('DK', dataKindConvert);
   return (
     <Root className='user_performance_container'>
       <ResponsiveContainer width="100%" height="100%">
 
-        <RadarChart  
-          data={dataKindConvert}
-          outerRadius={'70%'}
-          startAngle={30} // radar right 1 tick rotation 
-          endAngle={-330}
+        <RadarChart data={dataKindConvert}
+                    outerRadius={'70%'}
+                    startAngle={30} // radar right 1 tick rotation 
+                    endAngle={-330}
           >
 
           <PolarGrid  gridType='polygon'

@@ -4,38 +4,49 @@ import Root from './styled';
 
 const UserTodayScore = ({ todayScore }) => {
 
-  if (!todayScore) return (<> </>)
-  console.log(todayScore)
+  if (!todayScore || todayScore > 1) return (<> </>)
+  console.log('TD',todayScore)
 
-  const scoreData = [{value : todayScore*100}]
-  const endAngle = (0.25 * 100) * 3.6
-  console.log(endAngle);
+  const scoreData = [{value : todayScore}]
+  const scoreDataToAngle = (todayScore * 360)
+  const x = (-720 * todayScore + 90)
+
+  console.log('SD', scoreData);
+  console.log('EA', scoreDataToAngle);
+  console.log('X', x);
 
 
-  if (!scoreData) return (<> </>)
+  if (!scoreData || !scoreDataToAngle || !x) return (<> </>)
 
   return (
     <Root className='user_todayscore_container'>
       <ResponsiveContainer width='100%' height='100%'>
       
-        <RadialBarChart 
-            // width={730} 
-            // height={250} 
-            innerRadius="60%" 
-            outerRadius="80%" 
-            data={scoreData} 
-            startAngle={90} 
-            // endAngle={endAngle + 90}   // total= +90    EA= 0
-            endAngle={endAngle - 90}   // total= 0      EA= 0.25
-            // endAngle={endAngle - 270}  // total= -90    EA= 0.5
-            // endAngle={endAngle - 450}  // total= -180   EA= 0.75
-            // endAngle={endAngle - 630}  // total= -270   EA= 1
-            fill = "#FF0101"
-            radius={[10, 10, 0, 0]} 
-            
+        <RadialBarChart data={scoreData}
+                        // width={730} 
+                        // height={250} 
+                        innerRadius="60%" 
+                        outerRadius="80%" 
+                        startAngle={90} 
+                        // endAngle={-270}
+                        endAngle={scoreDataToAngle + x}
+                        // endAngle={scoreDataToAngle + 90}   // total= +90    EA= 0
+                        // endAngle={scoreDataToAngle - 90}   // total= 0      EA= 0.25
+                        // endAngle={scoreDataToAngle - 270}  // total= -90    EA= 0.5
+                        // endAngle={scoreDataToAngle - 450}  // total= -180   EA= 0.75
+                        // endAngle={scoreDataToAngle - 630}  // total= -270   EA= 1
+                        fill = "#FF0101"
+                        radius={[10, 10, 0, 0]} 
           >
 
-          <RadialBar minAngle={15} label={{ fill: 'lime', position: 'insideStart' }} background clockWise={true} dataKey= 'value'/>
+          <RadialBar  dataKey= 'value'
+                      cornerRadius="50%" 
+                      minAngle={15} 
+                      label={{ fill: 'lime', position: 'insideStart' }} 
+                      isAnimationActive={true} 
+                      // animationEasing='ease-out'
+                      background clockWise={true} 
+            />
         
           {/* <Legend iconSize={10} width={120} height={140} layout='vertical' verticalAlign='middle' align="right" /> */}
         

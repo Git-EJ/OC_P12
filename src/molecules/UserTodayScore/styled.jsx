@@ -36,17 +36,17 @@ const Root = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    font-size: clamp(1rem, 1.7vw, 1.7rem);
+    font-size: clamp(1.3rem, 1.7vw, 1.7rem);
     font-weight: 700;
   }
 
   & .user_todayscore_center_text {
     position: absolute;
-    top: 60%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    font-size: clamp(0.7rem, 1vw, 1rem);
+    font-size: clamp(0.8rem, 1vw, 1rem);
     font-weight: 500;
     color: #74798C;
   }

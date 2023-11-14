@@ -7,7 +7,7 @@ import Dumbbell from '../atoms/Dumbbell';
 
 const NavBar = () => { 
   return (
-    <div className="navbar_wrapper">
+    <nav className="navbar_wrapper">
       <div className="navbar_icons_container">
         <div className="navbar_icon_container">
           <Yoga />
@@ -26,7 +26,7 @@ const NavBar = () => {
       <div className="navbar_text_container">
         <p>Copyright, SportSee 2020</p>
       </div>
-    </div>
+    </nav>
   )
 }
 

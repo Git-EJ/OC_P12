@@ -11,7 +11,7 @@ import UserTodayScore from "../molecules/UserTodayScore";
 const Main = () => {
 
 const api = Api()
-const userMainData = api.getUserMainData() 
+const userMainData = api.getUserMainData()
 const userActivity = api.getUserActivity()
 const userAverageSessions = api.getUserAverageSessions()
 const userPerformance = api.getUserPerformance()
@@ -20,6 +20,8 @@ const firstName = userMainData?.userInfos?.firstName
 
 const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
 
+
+if (!userActivity || !userActivity.sessions) return (null)
 const activitySessions = userActivity?.sessions
 
 const keyData = userMainData?.keyData
@@ -32,13 +34,13 @@ const performanceData = userPerformance?.data
 
 const todayScore = userMainData?.todayScore ?? userMainData?.score
 
+// if (!userMainData) return (null)
 
   return (
     <>
-      <main className="main_wrapper">
         <NavBar />
 
-        <div className="main_content_wrapper">
+        <main className="main_content_wrapper">
           <UserNameAndGoal firstName={ firstName } goal= { goal } />
           
           <div className="main_content_left_right_block_container">
@@ -70,9 +72,7 @@ const todayScore = userMainData?.todayScore ?? userMainData?.score
               /> 
             </div>
           </div>
-
-        </div>
-      </main>
+        </main>
     </>
   )
 }

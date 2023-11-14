@@ -5,8 +5,10 @@
     width: 117px;
     height: calc(100vh - 91px);
     background: $dark_bg_color;
-    position: sticky;
+    position: fixed;
     top:91px;
+    left:0;
+    padding: 0 1rem;
   }
 
   &_icons_container {
@@ -38,7 +40,7 @@
   &_text_container {
     @include flex_center;
     flex-wrap: nowrap;
-    width: 138px;
+    width: 150px;
     height: auto; 
     position: fixed;
     bottom: 5.5rem;

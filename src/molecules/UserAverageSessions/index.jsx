@@ -57,7 +57,7 @@ const UserAverageSessions = ({ averageSessions }) => {
           
           <Line 
             dataKey="sessionLength" 
-            type="custom" // basis for round line
+            type="basis" // custom for real curve
             stroke="url(#lineGradient)"
             strokeWidth={2}
             activeDot={{ 

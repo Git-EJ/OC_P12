@@ -2,23 +2,15 @@ import {RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types'
 import Root from './styled';
 
-const UserTodayScore = ({ todayScore }) => {
+const UserTodayScore = ({ todayScore , startAngle = 90}) => {
 
   if (!todayScore || todayScore > 1) return (<> </>)
-  // console.log('TD',todayScore)
 
   const score = todayScore * 100
   const scoreData = [{value : todayScore}]
-  const scoreDataToAngle = (todayScore * 360)
-  const x = (-720 * todayScore + 90)
+  const scoreDataToAngle = (-todayScore * 360)
 
-  // console.log('SD', scoreData);
-  // console.log('EA', scoreDataToAngle);
-  // console.log('X', x);
-
-
-
-  if (!scoreData || !scoreDataToAngle || !x) return (<> </>)
+  if (!scoreData || !scoreDataToAngle ) return (<> </>)
 
   return (
     <Root className='user_todayscore_container'>
@@ -36,27 +28,20 @@ const UserTodayScore = ({ todayScore }) => {
         <RadialBarChart data={scoreData}
                         innerRadius="77%" 
                         outerRadius="90%" 
-                        startAngle={90} 
-                        endAngle={scoreDataToAngle + x}
-                        // endAngle={-270}                    // TODO REMOVE ALL
-                        // endAngle={scoreDataToAngle + 90}   // total= +90    EA= 0
-                        // endAngle={scoreDataToAngle - 90}   // total= 0      EA= 0.25
-                        // endAngle={scoreDataToAngle - 270}  // total= -90    EA= 0.5
-                        // endAngle={scoreDataToAngle - 450}  // total= -180   EA= 0.75
-                        // endAngle={scoreDataToAngle - 630}  // total= -270   EA= 1
+                        startAngle={startAngle} 
+                        endAngle={scoreDataToAngle + startAngle}
                         fill = "#FF0101"
-                        isAnimationActive={true} 
-                        animationBegin={0}        
-                        animationDuration={2000} 
-                        animationEasing="ease-out"
           >
 
           <RadialBar  dataKey= 'value'
                       cornerRadius="50%" 
                       minAngle={15} 
-                      // label={{ fill: 'lime', position: 'insideStart' }} 
-                      isAnimationActive={false} 
+                      isAnimationActive={true} 
+                      animationBegin={200}        
+                      animationDuration={1700} 
+                      animationEasing="ease-out"
                       clockWise={true} 
+                      // label={{ fill: 'lime', position: 'insideStart' }}  //DEV
                      
           />
         
@@ -67,8 +52,8 @@ const UserTodayScore = ({ todayScore }) => {
 }
 
 UserTodayScore.propTypes = {
- todayScore: PropTypes.number
-//  todayScore: PropTypes.object
+ todayScore: PropTypes.number,
+ startAngle: PropTypes.number 
 }
 
 export default UserTodayScore

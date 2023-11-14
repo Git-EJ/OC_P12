@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useAxios = (url) => {
-  const [data, setData] = useState(null)
+const useAxios = (url, defaultData=null) => {
+  const [data, setData] = useState(defaultData)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
 

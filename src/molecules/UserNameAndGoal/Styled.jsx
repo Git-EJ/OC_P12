@@ -8,11 +8,11 @@ const Root = styled.div`
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    border:  1px solid red; //DEV
+    margin-top: 2rem;
   }
 
   & .username_and_goal_container {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 3vw, 3rem);
     font-weight: 500;
   }
 
@@ -21,7 +21,7 @@ const Root = styled.div`
   }
 
   & .username_and_goal_goal {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.1vw, 1.1rem);
     margin-top: 1rem;
   }
 `

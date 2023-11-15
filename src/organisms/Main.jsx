@@ -6,6 +6,7 @@ import UserKeysData from "../molecules/UserKeysData";
 import UserAverageSessions from "../molecules/UserAverageSessions";
 import UserPerformance from "../molecules/UserPerformance"
 import UserTodayScore from "../molecules/UserTodayScore";
+import { Navigate } from "react-router-dom";
 
 
 const Main = () => {
@@ -33,8 +34,6 @@ const performanceKind =  userPerformance?.kind
 const performanceData = userPerformance?.data
 
 const todayScore = userMainData?.todayScore ?? userMainData?.score
-
-// if (!userMainData) return (null)
 
   return (
     <>

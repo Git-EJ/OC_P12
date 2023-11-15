@@ -14,8 +14,14 @@ const Router  = createBrowserRouter([
   {
     path:"/:userId",
     element: <Dashboard />,
-    errorElement: <Error />
-  }
+    // errorElement: <Error />
+  },
+
+  // Error path
+  {
+    path: "/404",
+    element: <Error />
+  },
 ])
 
 export default Router

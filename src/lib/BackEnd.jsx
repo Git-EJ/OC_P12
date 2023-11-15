@@ -1,15 +1,31 @@
+import { useNavigate } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
-
 
 const AxiosData = (url) => {
   // console.log('url', url);
-  const axiosData = useAxios(url);
-  const {data, isLoading, error} = axiosData;
-  // console.log('DATA', data);
-  if (isLoading || error || !data) {
-    return {isLoading :'LOADING DAMN!!!!!', error : 'ERROR DAMN!!!!!', noData : 'NO DATA DAMN!!!!!'};
+  const navigate = useNavigate()
+  const axiosData = useAxios(url)
+  const {data, isLoading, error} = axiosData
+  // console.log('DATA', data)
+  // console.log('isLoading', isLoading)
+  // console.log('error', error)
+
+  
+  if (isLoading) {
+    console.log('Loading...')
   }
-  return data.data;
+  
+  if (error) {
+    console.log('ERROR 404');
+    navigate("/404", { replace: true })
+  }
+  
+  if (!data) {
+    console.log('No data')
+    return null
+  }
+
+  return data.data
 }
 
 

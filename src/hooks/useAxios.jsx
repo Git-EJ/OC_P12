@@ -3,26 +3,33 @@ import { useEffect, useState } from "react";
 
 const useAxios = (url, defaultData=null) => {
   const [data, setData] = useState(defaultData)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true)
       try {
-        const response = await axios.get(url)
-        setData(response.data);
+        setIsLoading(true)
+          const response = await axios.get(url)
+          // console.log('resp', response);
+          setData(response.data);
+
       } catch (err) {
-      setError(err || "ERROR : useAxios")
+        // console.log('err.response', err.response);
+        // console.log('err.response.data', err.response.data);
+        // console.log('err.response.status', err.response.status);
+        // console.log('err.response.headers', err.response.headers);
+        setError(err)
+
       } finally {
         setIsLoading(false)
-        data && setError(null)
+        // data && setError(null) //TODO bonne pratique?
       }
     };
 
     fetchData();
 
-  },[url]) //TODO
+  },[url]) //TODO si finally data && setError(null)
 
   return { data, isLoading, error }
 }

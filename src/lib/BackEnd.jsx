@@ -1,43 +1,35 @@
-import { useNavigate } from "react-router-dom";
-import useAxios from "../hooks/useAxios";
+import axios from "axios";
 
-const AxiosData = (url) => {
-  // console.log('url', url);
-  const navigate = useNavigate()
-  const axiosData = useAxios(url)
-  const {data, isLoading, error} = axiosData
-  // console.log('DATA', data)
-  // console.log('isLoading', isLoading)
-  // console.log('error', error)
+const AxiosData = (url, onData, onLoading, onError) => {
 
-  
-  if (isLoading) {
-    console.log('Loading...')
-  }
-  
-  if (error) {
-    console.log('ERROR 404');
-    navigate("/404", { replace: true })
-  }
-  
-  if (!data) {
-    console.log('No data')
-    return null
-  }
-
-  return data.data
+  onLoading(true)
+  setTimeout(() => {
+  axios.get(url)
+    .then(response => {
+      onData(response.data.data)
+    })
+    .catch(error => {
+      onError(error)
+    })
+    .finally (() => {
+      onLoading(false)
+    })
+  }, 1000)
 }
 
+const HOST = "http://localhost:3000"
+const USER_API = HOST + "/user"
 
 const DataApi = {
- 
-    getUserMainData : (userId) => { return AxiosData(`http://localhost:3000/user/${userId}`) },
-    
-    getUserActivity : (userId) => { return AxiosData(`http://localhost:3000/user/${userId}/activity`)},
-   
-    getUserAverageSessions : (userId) => { return AxiosData(`http://localhost:3000/user/${userId}/average-sessions`) },
+  name: "external",
 
-    getUserPerformance : (userId) => { return AxiosData(`http://localhost:3000/user/${userId}/performance`) },
+  getUserMainData : (userId, onData, onLoading, onError) => { AxiosData(`${USER_API}/${userId}`, onData, onLoading, onError) },
+  
+  getUserActivity : (userId, onData, onLoading, onError) => { AxiosData(`${USER_API}/${userId}/activity`, onData, onLoading, onError)},
+  
+  getUserAverageSessions : (userId, onData, onLoading, onError) => { AxiosData(`${USER_API}/${userId}/average-sessions`, onData, onLoading, onError) },
+
+  getUserPerformance : (userId, onData, onLoading, onError) => { AxiosData(`${USER_API}/${userId}/performance`, onData, onLoading, onError) },
 }
 
 

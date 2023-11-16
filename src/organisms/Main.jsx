@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Api from "../lib/Api";
 import NavBar from "../molecules/NavBar";
 import UserNameAndGoal from "../molecules/UserNameAndGoal";
@@ -6,74 +7,111 @@ import UserKeysData from "../molecules/UserKeysData";
 import UserAverageSessions from "../molecules/UserAverageSessions";
 import UserPerformance from "../molecules/UserPerformance"
 import UserTodayScore from "../molecules/UserTodayScore";
-import { Navigate } from "react-router-dom";
-
 
 const Main = () => {
+  const [refresh, setRefresh] = useState(false)
+  const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
 
-const api = Api()
-const userMainData = api.getUserMainData()
-const userActivity = api.getUserActivity()
-const userAverageSessions = api.getUserAverageSessions()
-const userPerformance = api.getUserPerformance()
+  const {
+    getUserMainData,
+    getUserActivity,
+    getUserAverageSessions,
+    getUserPerformance,
+    dataMain,
+    dataActivity,
+    dataAverage,
+    dataPerformance,
+    loading,
+    // error,
+    api
+  } = Api()
 
-const firstName = userMainData?.userInfos?.firstName
+  useEffect(()=> {
+    console.log("MAIN-------")
+    if (!dataMain || refresh) getUserMainData()
+    if (!dataActivity || refresh) getUserActivity()
+    if (!dataAverage || refresh) getUserAverageSessions()
+    if (!dataPerformance || refresh) getUserPerformance()
+    setRefresh(false)
+  }, [dataMain,
+    dataActivity,
+    dataAverage,
+    dataPerformance,
+    getUserMainData,
+    getUserActivity,
+    getUserAverageSessions,
+    getUserPerformance,
+    refresh
+  ])
 
-const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
+  useEffect(() => {
+    console.log(api)
+    setRefresh(true)
+  }, [api])
 
-
-if (!userActivity || !userActivity.sessions) return (null)
-const activitySessions = userActivity?.sessions
-
-const keyData = userMainData?.keyData
-
-const averageSessions = userAverageSessions?.sessions 
-
-const performanceKind =  userPerformance?.kind
-
-const performanceData = userPerformance?.data
-
-const todayScore = userMainData?.todayScore ?? userMainData?.score
-
-  return (
-    <>
+    return (
+      <>
         <NavBar />
-
         <main className="main_content_wrapper">
-          <UserNameAndGoal firstName={ firstName } goal= { goal } />
-          
-          <div className="main_content_left_right_block_container">
-            <div className="main_content_left_block">
-              <div className="main_content_left_block_up">
-                <UserActivity activitySessions={ activitySessions}  />
+
+          {loading ? (
+            <div>Chargement...</div>
+          ) : (
+
+            <>
+              {dataMain && dataMain.userInfos && (
+                <UserNameAndGoal firstName={ dataMain.userInfos.firstName } goal= { goal } />
+              )}
+              
+              <div className="main_content_left_right_block_container">
+                <div className="main_content_left_block">
+                  {dataActivity && (
+                    <div className="main_content_left_block_up">
+                      <UserActivity activitySessions={ dataActivity.sessions }  />
+                    </div>
+                  )}
+
+                  <div className="main_content_left_block_down">
+                    {dataAverage && ( 
+                      <div className="main_content_left_block_down_left">
+                        <UserAverageSessions averageSessions={ dataAverage.sessions } />
+                      </div>
+                    )}
+
+                    {dataPerformance && (
+                      <div className="main_content_left_block_down_center">
+                        <UserPerformance
+                          performanceKind={ dataPerformance.kind }
+                          performanceData={ dataPerformance.data }
+                        />
+                      </div>
+                    )}
+                    
+                    {dataMain && (
+                      <div className="main_content_left_block_down_right">
+                        <UserTodayScore todayScore={ dataMain.todayScore || dataMain.score } /> 
+                      </div>
+                    )}
+                  </div>
+
+                </div>
+
+                {dataMain && dataMain.keyData && (
+                  <div className="main_content_right_block"> 
+                    <UserKeysData 
+                      calorieCount = {dataMain.keyData.calorieCount}
+                      proteinCount={dataMain.keyData.proteinCount}
+                      carbohydrateCount={dataMain.keyData.carbohydrateCount}
+                      lipidCount={dataMain.keyData.lipidCount}
+                    /> 
+                  </div>
+                )}
               </div>
-
-              <div className="main_content_left_block_down">
-                <div className="main_content_left_block_down_left">
-                  <UserAverageSessions averageSessions={ averageSessions } />
-                </div>
-                <div className="main_content_left_block_down_center">
-                  <UserPerformance performanceKind={ performanceKind } performanceData={ performanceData } />
-                </div>
-                <div className="main_content_left_block_down_right">
-                  <UserTodayScore todayScore={ todayScore } /> 
-                </div>
-              </div>
-
-            </div>
-
-            <div className="main_content_right_block"> 
-              <UserKeysData 
-                calorieCount = {keyData?.calorieCount}
-                proteinCount={keyData?.proteinCount}
-                carbohydrateCount={keyData?.carbohydrateCount}
-                lipidCount={keyData?.lipidCount}
-              /> 
-            </div>
-          </div>
+            </>
+          )}
         </main>
-    </>
-  )
+      </>
+    )
 }
 
 

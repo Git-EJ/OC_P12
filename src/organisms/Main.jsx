@@ -7,9 +7,12 @@ import UserKeysData from "../molecules/UserKeysData";
 import UserAverageSessions from "../molecules/UserAverageSessions";
 import UserPerformance from "../molecules/UserPerformance"
 import UserTodayScore from "../molecules/UserTodayScore";
+import { Navigate } from "react-router-dom";
+
 
 const Main = () => {
   const [refresh, setRefresh] = useState(false)
+  const [errorProps, setErrorProps] = useState(null)
   const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
 
   const {
@@ -22,7 +25,7 @@ const Main = () => {
     dataAverage,
     dataPerformance,
     loading,
-    // error,
+    error,
     api
   } = Api()
 
@@ -49,12 +52,37 @@ const Main = () => {
     setRefresh(true)
   }, [api])
 
-    return (
-      <>
+  useEffect(() => {
+    if (error && error.response) {
+      const { status, statusText, data } = error.response
+      setErrorProps({ status, statusText, message: data ? data : null})
+    }
+  }, [error, setErrorProps])
+
+
+  useEffect(() => {
+    if(error) {
+      console.log('errorMain', error)
+      console.log('errorPropsMain', errorProps)
+    }
+  }, [error, errorProps])
+
+  
+  return (
+    <>
+      {errorProps && ( 
+        <Navigate
+          to={`/error/${errorProps.status}`}
+          state={{ errorProps }}
+          replace={true}
+        />
+      )}
+
         <NavBar />
         <main className="main_content_wrapper">
 
           {loading ? (
+            //TODO: add a loader
             <div>Chargement...</div>
           ) : (
 
@@ -113,8 +141,6 @@ const Main = () => {
       </>
     )
 }
-
-
 
 
 export default Main

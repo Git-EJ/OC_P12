@@ -1,0 +1,81 @@
+.loading_spinner {
+
+  &_wrapper {
+    @include flex_center_column;
+    width:100%;
+    height:100%;
+    // background-color: rgba(128, 128, 128, 0.884); //DEV
+  }
+
+  &_container {
+    @include flex_center;
+    width:30rem;
+    height:30rem;
+    border-radius: 20%;
+    background-color: $light_bg_color;
+  }
+
+
+  @keyframes logoWave {
+    0% {box-shadow:0 0 0 1.2em $primary_color, 0 0 0 .1em $primary_color; transform:rotate(-360deg);}
+    100% { box-shadow:0 0 0 .5em $primary_color, 0 0 0 6em transparent;}
+  }
+
+  &_logo{
+    @include flex_center;
+    width:15rem;
+    height:15rem;
+    border-radius:50%;
+    animation:logoWave 1.5s cubic-bezier(.25,.1,.25,1) infinite;
+
+    svg {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  &_text {
+    @include flex_center;
+    margin-top: 2rem;
+    font-size: clamp(1rem, 4vh, 2rem);
+    color: $primary_color;
+    
+    & p {
+      margin-right: 0.3rem;
+    }
+
+    & span {
+      animation: ellipsisDots 1.5s ease infinite;
+      margin-right:0.3rem;
+    }
+
+    & span:nth-child(2) {
+      animation-delay: 0s;
+    }
+    
+    & span:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+    
+    & span:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+    
+    @keyframes ellipsisDots {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-10px) scale(2);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+  }
+}
+

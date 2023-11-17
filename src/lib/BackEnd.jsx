@@ -14,7 +14,7 @@ const AxiosData = (url, onData, onLoading, onError) => {
     .finally (() => {
       onLoading(false)
     })
-  }, 1000)
+  }, 10000) //TODO set to 1000
 }
 
 const HOST = "http://localhost:3000"

@@ -32,7 +32,7 @@ const Error = ({ errorProps }) => {
       <div>
         <h1>Oops! Something went wrong</h1>
         <p>
-          Error code: 404
+          Error code: {errorProps.status?? '404'}
         </p>
       </div>
     )
@@ -62,7 +62,7 @@ const Error = ({ errorProps }) => {
 //       <div>
 //         <h1>Oops! Something went wrong</h1>
 //         <p>
-//           Error code: 404
+//           Error code: {errorCode}
 //         </p>
 //       </div>
 //     )

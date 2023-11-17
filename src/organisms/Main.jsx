@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 import Api from "../lib/Api";
 import NavBar from "../molecules/NavBar";
+import LoadingSpinner from "../molecules/LoadingSpinner";
 import UserNameAndGoal from "../molecules/UserNameAndGoal";
 import UserActivity from "../molecules/UserActivity";
 import UserKeysData from "../molecules/UserKeysData";
 import UserAverageSessions from "../molecules/UserAverageSessions";
 import UserPerformance from "../molecules/UserPerformance"
 import UserTodayScore from "../molecules/UserTodayScore";
-import { Navigate } from "react-router-dom";
 
 
 const Main = () => {
@@ -82,8 +83,7 @@ const Main = () => {
         <main className="main_content_wrapper">
 
           {loading ? (
-            //TODO: add a loader
-            <div>Chargement...</div>
+            <LoadingSpinner />
           ) : (
 
             <>

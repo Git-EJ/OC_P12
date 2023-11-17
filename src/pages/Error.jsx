@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Error = ({ errorProps }) => {
 
@@ -19,10 +20,11 @@ const Error = ({ errorProps }) => {
         errorMessage = errorMessage ?? 'no Message'
 
         return (
-          <div>
-              <h1>Error: {errorCode}</h1>
-              <p>Status: {errorStatusText}</p>
-              <p>Message: {errorMessage}</p>
+          <div className='error_container'>
+              <h1 className='error_code'>{errorCode}</h1>
+              <NavLink to='/' className='error_homebutton'>Retour à la page d&#39;accueil</NavLink>
+              <p className='error_text'>Status: {errorStatusText}</p>
+              <p className='error_text'>Message: {errorMessage}</p>
           </div>
         )
       }) ()

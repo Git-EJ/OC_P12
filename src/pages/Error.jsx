@@ -22,7 +22,7 @@ const Error = ({ errorProps }) => {
         return (
           <div className='error_container'>
               <h1 className='error_code'>{errorCode}</h1>
-              <NavLink to='/' className='error_homebutton'>Retour à la page d&#39;accueil</NavLink>
+              <NavLink to='/' className='error_homebutton navlink'>Retour à la page d&#39;accueil</NavLink>
               <p className='error_text'>Status: {errorStatusText}</p>
               <p className='error_text'>Message: {errorMessage}</p>
           </div>

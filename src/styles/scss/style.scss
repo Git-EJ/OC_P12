@@ -1,11 +1,12 @@
 @import './base/_reset.scss';
+@import './base/__all.scss';
 @import './utils/__variables.scss';
 @import './utils/__flex_mixins.scss';
 @import './utils/__font.scss';
-@import './base/__all.scss';
+@import './utils/display_timeout.scss';
+@import './components/loadingspinner.scss';
 @import './components/header.scss';
 @import './components/navbar.scss';
 @import './components/main.scss';
 @import './components/user_key_data.scss';
 @import './components/error.scss';
-@import './components/loadingspinner.scss';

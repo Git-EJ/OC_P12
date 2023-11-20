@@ -35,6 +35,10 @@ const Router  = createBrowserRouter([
     path: "/error/:errorCode", //errorCode = errorPropsStatus
     element: <ErrorHandler />,
   },
+  {
+    path: "*",
+    element: <Navigate to="/error" />, //TODO GOOD PRACTIVE?
+  }
 ])
 
 export default Router

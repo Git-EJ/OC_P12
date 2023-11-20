@@ -5,6 +5,15 @@ import Proteins from "../atoms/Proteins";
 import Lipids from "../atoms/Lipids";
 import PropTypes from 'prop-types'
 
+/**
+ * 
+ * @param {number} calorieCount
+ * @param {number} proteinCount
+ * @param {number} carbohydrateCount
+ * @param {number} lipidCount
+ * @returns {JSX.Element}
+ * @description This component is used to display the 4 keys data of the user(text end icon), situated on the vertical right pages.
+*/
 
 const UserKeysData = ({ calorieCount, proteinCount, carbohydrateCount, lipidCount }) => {
   
@@ -21,16 +30,10 @@ const UserKeysData = ({ calorieCount, proteinCount, carbohydrateCount, lipidCoun
 }
 
 UserKeysData.propTypes = {
-  calorieCount: PropTypes.number,
-  proteinCount: PropTypes.number,
-  carbohydrateCount: PropTypes.number,
-  lipidCount: PropTypes.number
-
-  //TODO
-  // calorieCount: PropTypes.number.isRequired,
-  // proteinCount: PropTypes.number.isRequired,
-  // carbohydrateCount: PropTypes.number.isRequired,
-  // lipidCount: PropTypes.number.isRequired
+  calorieCount: PropTypes.number.isRequired,
+  proteinCount: PropTypes.number.isRequired,
+  carbohydrateCount: PropTypes.number.isRequired,
+  lipidCount: PropTypes.number.isRequired
 }
 
 export default UserKeysData

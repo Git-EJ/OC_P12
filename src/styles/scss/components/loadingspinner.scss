@@ -4,7 +4,6 @@
     @include flex_center_column;
     width:100%;
     height:100%;
-    // background-color: rgba(128, 128, 128, 0.884); //DEV
   }
 
   &_container {
@@ -17,8 +16,14 @@
 
 
   @keyframes logoWave {
-    0% {box-shadow:0 0 0 1.2em $primary_color, 0 0 0 .1em $primary_color; transform:rotate(-360deg);}
-    100% { box-shadow:0 0 0 .5em $primary_color, 0 0 0 6em transparent;}
+    0% {
+      box-shadow:0 0 0 1.2em $primary_color, 0 0 0 .1em $primary_color; 
+      transform:rotate(-360deg);
+    }
+
+    100% {
+       box-shadow:0 0 0 .5em $primary_color, 0 0 0 6em transparent;
+    }
   }
 
   &_logo{
@@ -75,7 +80,6 @@
         opacity: 1;
       }
     }
-
   }
 }
 

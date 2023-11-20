@@ -1,0 +1,38 @@
+.username_and_goal_wrapper,
+.main_content_left_right_block_container,
+.error_container {
+  animation: pagesDisplayTimeout 2s linear;
+}
+
+@keyframes pagesDisplayTimeout {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.loading_spinner_container {
+  animation: loadingSpinnerDisplayTimeout 2s linear; //TODO time should be, the back end loading time, variable???
+}
+
+@keyframes loadingSpinnerDisplayTimeout {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

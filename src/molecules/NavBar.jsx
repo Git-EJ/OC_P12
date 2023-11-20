@@ -4,7 +4,6 @@ import Biker from '../atoms/Biker';
 import Dumbbell from '../atoms/Dumbbell';
 import { NavLink } from 'react-router-dom';
 
-
 /**
  * 
  * @returns {JSX.Element}

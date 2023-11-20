@@ -2,6 +2,13 @@ import { useContext, useState } from "react"
 import Logo from "../atoms/Logo.jsx"
 import ApiContext from "../context/ApiContext.jsx"
 
+/**
+ * 
+ * @returns {JSX.Element}
+ * @description This component is used to display the header logo and text. The logo is clickable and toggle the api.
+ * 
+ */
+
 
 const HeaderLogo = () => {
 

@@ -1,6 +1,13 @@
 import PropTypes from 'prop-types';
 import Root from './Styled'
 
+/**
+ * 
+ * @param {string} firstName
+ * @param {string} goal
+ * @returns {JSX.Element}
+ * @description This component is used to display the username and goal.
+ */
 
 const FirstNameAndGoal = ({ firstName, goal }) => {
 

@@ -2,6 +2,15 @@ import PropTypes from 'prop-types';
 import { PolarGrid, RadarChart, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer } from 'recharts';
 import Root from './styled';
 
+/**
+ * 
+ * @param {object} performanceKind
+ * @param {array} performanceData
+ * @returns {JSX.Element}
+ * @description This component is used to display the radar chart of the user performance.
+ * 
+ **/
+
 const convertDataKind = (performanceData, performanceKind) => {
 
   //TODO object or array ?
@@ -57,8 +66,6 @@ const UserPerformance = ({performanceKind, performanceData}) => {
                   stroke="" fill="#FF0101" 
                   fillOpacity={0.6} 
           />
-
-          {/* <Legend /> */}
         </RadarChart>
       </ResponsiveContainer>
     </Root>

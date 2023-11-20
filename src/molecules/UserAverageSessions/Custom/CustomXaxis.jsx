@@ -1,3 +1,12 @@
+
+/**
+ * 
+ * @param {number} day
+ * @returns {string}
+ * @description This component is used to convert and display the day in number to a day in letter.
+ * 
+ */
+
 const dayNumberToDayLetter = {
   1: 'L',
   2: 'M',

@@ -5,6 +5,14 @@ import CustomTooltip from "./CustomToolTip"
 import Root from './Styled';
 
 
+/**
+ * 
+ * @param {array} activitySessions
+ * @returns {JSX.Element}
+ * @description This component is used to display the user activity sessions with Bar Chart.
+ * 
+**/
+
 const UserActivity = ({ activitySessions }) => {
 
   //FOR RIGHT Y AXIS VALUE SET IT TO MIN/AVERAGE/MAX

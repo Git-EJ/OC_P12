@@ -2,6 +2,15 @@ import {RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types'
 import Root from './styled';
 
+/**
+ * 
+ * @param {number} todayScore
+ * @param {number} startAngle
+ * @returns {JSX.Element}
+ * @description This component is used to display the radial bar chart of the user today score.
+ * 
+ */
+
 const UserTodayScore = ({ todayScore , startAngle = 90}) => {
 
   if (!todayScore || todayScore > 1) return (<> </>)

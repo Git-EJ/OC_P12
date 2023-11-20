@@ -1,5 +1,14 @@
 import PropTypes from 'prop-types'
 
+/**
+ * 
+ * @param {boolean} active
+ * @param {object} payload
+ * @returns {JSX.Element}
+ * @description This component is used to display a custom tooltip.
+ * 
+ */
+
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (

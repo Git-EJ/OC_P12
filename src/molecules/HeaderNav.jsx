@@ -1,5 +1,11 @@
 import { NavLink } from "react-router-dom"
 
+/**
+ * 
+ * @returns {JSX.Element}
+ * @description This component is used to display the header navigation bar containing logo and navMenu.
+ */
+
 
 const HeaderNav = () => {
   

@@ -11,6 +11,12 @@ import UserPerformance from "../molecules/UserPerformance"
 import UserTodayScore from "../molecules/UserTodayScore";
 
 
+/**
+ * 
+ * @returns {JSX.Element}
+ * @description This component is used to display the main page. Main === Navbar && firstame and goal && all charts 
+ */
+
 const Main = () => {
 
   const [refresh, setRefresh] = useState(false)

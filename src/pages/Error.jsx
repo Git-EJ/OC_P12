@@ -2,6 +2,13 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
+/** 
+  *
+  * @param {object} errorProps
+  * @returns {JSX.Element}
+  * @description This component is used to display the error page.
+**/
+
 const Error = ({ errorProps }) => {
 
   useEffect(() => {

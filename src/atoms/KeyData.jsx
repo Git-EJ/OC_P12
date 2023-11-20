@@ -1,5 +1,17 @@
 import PropTypes from 'prop-types'
 
+/**
+ * 
+ * @param {element} icon
+ * @param {string} color
+ * @param {number} itemCount
+ * @param {string} unit
+ * @param {string} label
+ * @returns {JSX.Element}
+ * @description This component is used to display the key data.
+ * 
+**/
+
 const KeyData = ({ icon, color, itemCount, unit, label }) => {
 
 
@@ -23,11 +35,9 @@ const KeyData = ({ icon, color, itemCount, unit, label }) => {
 }
 
 KeyData.propTypes = {
-  color: PropTypes.string,
   icon: PropTypes.element.isRequired,
-  //TODO
-  itemCount: PropTypes.number,
-  // itemCount: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
+  itemCount: PropTypes.number.isRequired,
   unit: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired
 }

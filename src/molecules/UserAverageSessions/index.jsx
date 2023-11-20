@@ -6,9 +6,15 @@ import CustomTooltip from './Custom/CustomToolTip';
 import CustomLegend from './Custom/CustomLegend';
 import CustomCursor from './Custom/CustomCursor';
 
+/**
+ * 
+ * @param {array} averageSessions
+ * @returns {JSX.Element}
+ * @description This component is used to display the user average sessions with Line Chart.
+ * 
+**/
 
-
-const UserAverageSessions = ({ averageSessions }) => {
+const UserAverageSessions = ({ averageSessions }) => { 
 
   if (!averageSessions) return(<> </>)
 
@@ -89,9 +95,7 @@ const UserAverageSessions = ({ averageSessions }) => {
 
 
 UserAverageSessions.propTypes = {
-  averageSessions: PropTypes.array
-  //TODO
-  // averageSessions: PropTypes.array.isRequired
+  averageSessions: PropTypes.array.isRequired
 }
 
 export default UserAverageSessions

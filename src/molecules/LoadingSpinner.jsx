@@ -1,5 +1,11 @@
 import Logo from "../atoms/Logo"
 
+/**
+ * 
+ * @returns {JSX.Element}
+ * @description This component is used to display a loading spinner.
+ */
+
 
 const LoadingSpinner = () => {
   return (

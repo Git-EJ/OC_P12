@@ -1,30 +1,57 @@
-
 let DATA = null
 
+/**
+ * 
+ *  @description This component is used to retrieve the data from the public/data_mocked/data.json.
+ */
 const getData = async () => {
   if (DATA) return DATA
   try {
     const DATA = await fetch('/data_mocked/data.json')
     .then(response => response.json())
-    console.log(DATA)
     return DATA
   } catch(err) {
-    console.log(err)
+    console.log('%cmocked_getData_error', 'color:red', err)
     return null
   }
 }
 
+/**
+ * 
+ * @param {object} data from getData in called in mockedApi
+ * @param {number} userId from useParams
+ * @param {function} onData from Api component (data setter)
+ * @param {function} onLoading from Api component (loading setter)
+ * @param {function} onError from Api component (error setter)
+ * @returns {object} result
+ * @description  This function is used to find user from getDATA. Used in MockedApi. 
+ *               If no user is found, return null and set error to true.
+ *
+ */
+
 const findData = (data, userId, onData, onLoading, onError) => {
   try {
-    onLoading(true)
+    onLoading(c=>c+1)
     const result= data.find(user => +user.id === +userId || +user.userId === +userId);
-    onLoading(false)
+    onLoading(c=>c-1)
     onData(result)
   } catch(err) {
     onError(err)
     return null
   }
 }
+
+/**
+ * @param {number} userId from useParams
+ * @param {function} onData from Api component (data setter)
+ * @param {function} onLoading from Api component (loading setter)
+ * @param {function} onError from Api component (error setter)
+ * @returns {object} MockedApi.getMainData - get the main data of the user
+ * @returns {object} MockedApi.getUserActivity - get the user activity
+ * @returns {object} MockedApi.getUserAverageSessions - get the user average sessions
+ * @returns {object} MockedApi.getUserPerformance - get the user performance
+ * 
+**/
 
 const MockedApi = {
   name: "mocked",

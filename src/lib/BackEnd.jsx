@@ -1,8 +1,16 @@
 import axios from "axios";
 
+/**
+ * 
+ * @param {string} url 
+ * @param {function} onData
+ * @param {function} onLoading 
+ * @param {function} onError 
+ * @description This function is used to get data from back end
+ */
 const AxiosData = (url, onData, onLoading, onError) => {
 
-  onLoading(true)
+  onLoading(c=>c+1)
   setTimeout(() => {
   axios.get(url)
     .then(response => {
@@ -12,9 +20,9 @@ const AxiosData = (url, onData, onLoading, onError) => {
       onError(error)
     })
     .finally (() => {
-      onLoading(false)
+      onLoading(c=>c-1)
     })
-  }, 10000) //TODO set to 1000
+  }, 2000)
 }
 
 const HOST = "http://localhost:3000"

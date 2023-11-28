@@ -2,13 +2,19 @@ import { useCallback, useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ApiContext from "../context/ApiContext"
 
+/**
+  *
+  * @description This component is used to retrieve the data from mocked or backEnd
+  * @description The switch between mocked and backEnd is done with the HeaderLogo component, and the logic is in the ApiContextProvider.
+  *
+**/
 const Api = () => {
 
   const { userId } = useParams()
   const { currentApi } = useContext(ApiContext)
 
   const [api, setApi] = useState(currentApi)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(0)
   const [error, setError] = useState(null)
 
   const [dataMain, setDataMain] = useState(null)
@@ -34,7 +40,6 @@ const Api = () => {
   }, [setDataPerformance, setLoading, setError, currentApi, userId])
 
   useEffect(() =>{
-    // console.log("currentApi", currentApi)
     setApi(currentApi)
   }, [currentApi])
 

@@ -25,8 +25,7 @@ const Root = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // background: pink; //DEV
-    background: #fff; // TODO
+    background: #fff;
     border-radius: 50%;
   }
 

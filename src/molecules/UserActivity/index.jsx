@@ -114,9 +114,7 @@ const UserActivity = ({ activitySessions }) => {
 }
 
 UserActivity.propTypes = {
-  activitySessions: PropTypes.array
-  //TODO
-  // activitySessions: PropTypes.array.isRequired
+  activitySessions: PropTypes.array.isRequired
 }
 
 

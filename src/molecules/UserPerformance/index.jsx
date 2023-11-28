@@ -11,20 +11,17 @@ import Root from './styled';
  * 
  **/
 
+
 const convertDataKind = (performanceData, performanceKind) => {
 
-  //TODO object or array ?
-  const upperKind = {}
+  const upperKind = new Map()
   Object.keys(performanceKind).forEach(key => {
-    upperKind[key] = performanceKind[key].charAt(0).toUpperCase() + performanceKind[key].slice(1)
+    upperKind.set(""+key, performanceKind[key].charAt(0).toUpperCase() + performanceKind[key].slice(1).toLowerCase())
   })
-
-  // const upperKind= Object.values(performanceKind).map(el => el.charAt(0).toUpperCase() + el.slice(1))
   
   return performanceData.map((el) => ({
     value: el.value,
-    kind: upperKind[el.kind] //for upperKind object
-    // kind: upperKind[el.kind -1] //-1 for index zero of the map upperKind array
+    kind: upperKind.get(""+el.kind) // "" for changing number key to string key
   }))
 }
 
@@ -33,7 +30,7 @@ const UserPerformance = ({performanceKind, performanceData}) => {
   if (!performanceKind && !performanceData) return (<> </>)
 
   const dataKindConvert = convertDataKind(performanceData, performanceKind)
-    // console.log('DK', dataKindConvert);
+
   return (
     <Root className='user_performance_container'>
       <ResponsiveContainer width="100%" height="100%">
@@ -42,6 +39,7 @@ const UserPerformance = ({performanceKind, performanceData}) => {
                     outerRadius={'70%'}
                     startAngle={30} // radar right 1 tick rotation 
                     endAngle={-330}
+                    className="radar-perf"
           >
 
           <PolarGrid  gridType='polygon'

@@ -26,7 +26,6 @@ const Root = styled.div`
       color:rgba(255, 255, 255, 0.504);
     }
 
-    //TODO couvre le AxisX tick si opacity 1
     & .user_average_sessions_custom_cursor {
       opacity: 0.5;
       fill: #E60000;

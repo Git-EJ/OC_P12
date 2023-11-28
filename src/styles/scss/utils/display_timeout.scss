@@ -20,7 +20,7 @@
 
 
 .loading_spinner_container {
-  animation: loadingSpinnerDisplayTimeout 2s linear; //TODO time should be, the back end loading time, variable???
+  animation: loadingSpinnerDisplayTimeout 2s linear;
 }
 
 @keyframes loadingSpinnerDisplayTimeout {

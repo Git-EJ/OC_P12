@@ -20,8 +20,6 @@ const dayNumberToDayLetter = {
 
 const CustomXaxis = (day) => {
   if (dayNumberToDayLetter[day]) return dayNumberToDayLetter[day]
-  
-  console.log('UserAverageSessions => customXaxis ERROR')
   return dayNumberToDayLetter.error
 }
 

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// TODO STYLED COMPONENT ET SASS IMBRIQUE???
 const Root = styled.div`
   &.username_and_goal_wrapper {
     display: flex;

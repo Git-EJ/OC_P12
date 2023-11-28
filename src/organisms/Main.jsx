@@ -13,17 +13,34 @@ import UserTodayScore from "../molecules/UserTodayScore";
 
 /**
  * 
- * @returns {JSX.Element}
  * @description This component is used to display the main page. Main === Navbar && firstame and goal && all charts 
+ * @returns {JSX.Element}
  */
 
 const Main = () => {
 
-  const [refresh, setRefresh] = useState(false)
-  const [errorProps, setErrorProps] = useState(null)
+  const [refresh, setRefresh] = useState(false) //used to refresh the data when the api is changed (mocked or backEnd)
+  const [errorProps, setErrorProps] = useState(null) //error stored in state, able to use it in the Navigate component
 
   const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
 
+
+  /**
+   * @description This component is used to retrieve the data from the API (mocked or backEnd).
+   * @param {function} getUserMainData - get the main data of the user (name, goal, todayScore, keyData)
+   * @param {function} getUserActivity - get the user activity (sessions)
+   * @param {function} getUserAverageSessions - get the user average sessions (sessions)
+   * @param {function} getUserPerformance - get the user performance (kind, data)
+   * 
+   * @param {object} dataMain - main data of the user (name, goal, todayScore, keyData) stored in state
+   * @param {object} dataActivity - user activity (sessions) stored in state
+   * @param {object} dataAverage - user average sessions (sessions) stored in state
+   * @param {object} dataPerformance - user performance (kind, data) stored in state
+   * @param {number} loading - loading state
+   * @param {object} error - error state
+   * @param {string} api - api state (mocked or backEnd)
+   * 
+   */
   const {
     getUserMainData,
     getUserActivity,
@@ -37,13 +54,15 @@ const Main = () => {
     error,
     api
   } = Api()
-
+  
+/**
+ * @description This useEffect is used to "recall" the data if data change or refresh is true
+ */
   useEffect(()=> {
-    console.log("UE_MAIN--MAIN")
-    if (!dataMain || refresh) getUserMainData()
-    if (!dataActivity || refresh) getUserActivity()
-    if (!dataAverage || refresh) getUserAverageSessions()
-    if (!dataPerformance || refresh) getUserPerformance()
+    if (!dataMain || refresh) getUserMainData();
+    if (!dataActivity || refresh) getUserActivity();
+    if (!dataAverage || refresh) getUserAverageSessions();
+    if (!dataPerformance || refresh) getUserPerformance();
     setRefresh(false)
   }, [dataMain,
     dataActivity,
@@ -56,27 +75,32 @@ const Main = () => {
     refresh
   ])
 
+  /**
+   *
+   * @description This useEffect is used to refresh the data when the api is changed (mocked or backEnd)
+   * @param {boolean} refresh - refresh state
+   */
   useEffect(() => {
-    console.log('UE_MAIN--REFRESH')
     setRefresh(true)
   }, [api])
 
+  /**
+   * @description This useEffect is used to set the errorProps when the error is changed
+   * @param {object} errorProps - errorProps state
+   * @param {object} error - error state
+   * @param {number} status - status of the error
+   * @param {string} statusText - statusText of the error
+   * @param {object} data - data of the error
+   *  
+  */
   useEffect(() => {
     if (error && error.response) {
       const { status, statusText, data } = error.response
       setErrorProps({ status, statusText, message: data ? data : null})
     }
-  }, [error, setErrorProps])
+  }, [error])
 
 
-  // useEffect(() => {
-  //   if(error) {
-  //     console.log('errorMain', error)
-  //     console.log('errorPropsMain', errorProps)
-  //   }
-  // }, [error, errorProps])
-
-  
   return (
     <>
       {errorProps && ( 
@@ -90,7 +114,7 @@ const Main = () => {
       <main className="main_content_wrapper">
       <NavBar />
 
-        {loading ? (
+        {loading>0 ? (
           <LoadingSpinner />
         ) : (
 

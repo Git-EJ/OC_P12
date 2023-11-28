@@ -32,11 +32,6 @@ const Root = styled.div`
     font-size: clamp(0.6rem, 1vw, 12px);
     fill: #fff;
   }
-
-  //TODO impossible de faire fonctionner ::first-letter
-  // & .recharts-polar-angle-axis-tick > text::first-letter{
-  //   text-transform: upperCase !important;
-  // }
 `
 
 export default Root

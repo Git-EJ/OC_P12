@@ -4,16 +4,24 @@ let DATA = null
  * 
  *  @description This component is used to retrieve the data from the public/data_mocked/data.json.
  */
-const getData = async () => {
+const getData = async (onError) => {
   if (DATA) return DATA
-  try {
-    const DATA = await fetch('/data_mocked/data.json')
-    .then(response => response.json())
-    return DATA
-  } catch(err) {
-    console.log('%cmocked_getData_error', 'color:red', err)
+
+  return (await fetch('/data_mocked/data.json')
+  .then(response => {
+    if (!response.ok) throw ({...response, status: response.status, statusText: response.statusText, data: "Mocked data not found"})
+    return response.json()
+  })
+  .then(data => {DATA=data; return data})
+  .catch(err => {
+    console.log('%cmocked_getData_error', 'color:red', err);
+    if (err.status) {
+      onError({response: err})
+    } else {
+      onError({response: {status: 500, statusText: "Unknwon error : contact the administrator", data: "Mocked data failed"}})
+    }
     return null
-  }
+  }))
 }
 
 /**
@@ -36,8 +44,8 @@ const findData = (data, userId, onData, onLoading, onError) => {
     onLoading(c=>c-1)
     onData(result)
   } catch(err) {
+    console.log('%cmocked_findData_error', 'color:orange', err);
     onError(err)
-    return null
   }
 }
 
@@ -56,25 +64,25 @@ const findData = (data, userId, onData, onLoading, onError) => {
 const MockedApi = {
   name: "mocked",
     getUserMainData : async (userId, onData, onLoading, onError) => {
-      const data = await getData();
+      const data = await getData(onError);
       if (data)
         findData(data.USER_MAIN_DATA, userId, onData, onLoading, onError)
     },
     
     getUserActivity : async (userId, onData, onLoading, onError) => {
-      const data = await getData();
+      const data = await getData(onError);
       if (data)
         findData(data.USER_ACTIVITY, userId, onData, onLoading, onError)
     },
 
     getUserAverageSessions : async (userId, onData, onLoading, onError) => {
-      const data = await getData();
+      const data = await getData(onError);
       if (data)
         findData(data.USER_AVERAGE_SESSIONS, userId, onData, onLoading, onError)
     },
 
     getUserPerformance : async (userId, onData, onLoading, onError) => {
-      const data = await getData();
+      const data = await getData(onError);
       if (data)
         findData(data.USER_PERFORMANCE, userId, onData, onLoading, onError)
     },

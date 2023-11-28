@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Api from "../lib/Api";
 import NavBar from "../molecules/NavBar";
 import LoadingSpinner from "../molecules/LoadingSpinner";
@@ -10,7 +10,6 @@ import UserAverageSessions from "../molecules/UserAverageSessions";
 import UserPerformance from "../molecules/UserPerformance"
 import UserTodayScore from "../molecules/UserTodayScore";
 
-
 /**
  * 
  * @description This component is used to display the main page. Main === Navbar && firstame and goal && all charts 
@@ -20,10 +19,9 @@ import UserTodayScore from "../molecules/UserTodayScore";
 const Main = () => {
 
   const [refresh, setRefresh] = useState(false) //used to refresh the data when the api is changed (mocked or backEnd)
-  const [errorProps, setErrorProps] = useState(null) //error stored in state, able to use it in the Navigate component
 
   const goal = "Félicitation ! Vous avez explosé vos objectifs hier 👏"
-
+  const navigate = useNavigate()
 
   /**
    * @description This component is used to retrieve the data from the API (mocked or backEnd).
@@ -82,7 +80,7 @@ const Main = () => {
    */
   useEffect(() => {
     setRefresh(true)
-  }, [api])
+  }, [api, setRefresh])
 
   /**
    * @description This useEffect is used to set the errorProps when the error is changed
@@ -96,20 +94,13 @@ const Main = () => {
   useEffect(() => {
     if (error && error.response) {
       const { status, statusText, data } = error.response
-      setErrorProps({ status, statusText, message: data ? data : null})
+      navigate(`/error/${status}`, { state: { errorProps: { status, statusText, message: data ? data : null } } })
     }
-  }, [error])
+  }, [error, navigate])
 
 
   return (
     <>
-      {errorProps && ( 
-        <Navigate
-          to={`/error/${errorProps.status}`}
-          state={{ errorProps }}
-          replace={true}
-        />
-      )}
 
       <main className="main_content_wrapper">
       <NavBar />

@@ -15,7 +15,7 @@ const UserTodayScore = ({ todayScore , startAngle = 90}) => {
 
   if (!todayScore || todayScore > 1) return (<> </>)
 
-  const score = todayScore * 100
+  const score = Math.round(todayScore * 100)
   const scoreData = [{value : todayScore}]
   const scoreDataToAngle = (-todayScore * 360)
 

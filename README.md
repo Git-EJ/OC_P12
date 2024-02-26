@@ -19,11 +19,11 @@
 ![Vite Badge](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff&style=flat)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 
-<strong>Project:</strong> From scratch, display from 1024x768px. 
+<strong>Project:</strong> Front From scratch, back from OC. 
 
-<strong>Project goal:</strong> Develop an analytics dashboard with React and Recharts lib.
+<strong>Project goal:</strong> Develop an analytics dashboard with React and Recharts lib, display from 1024x768px.
 
-<strong>Personal addition:</strong> Loading spinner, switch between mocked and api data with click on the logo.
+<strong>Personal addition:</strong> Loading spinner, switch between mocked and api data with click on the logo, 404 pages.
 
 
 

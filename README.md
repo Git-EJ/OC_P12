@@ -21,7 +21,7 @@
 
 <strong>Project:</strong> From scratch, display from 1024x768px. 
 
-<strong>Project goal:</strong> Develop an analytics dashboard with React.
+<strong>Project goal:</strong> Develop an analytics dashboard with React and Recharts lib.
 
 <strong>Personal addition:</strong> Loading spinner, switch between mocked and api data with click on the logo.
 
@@ -51,6 +51,6 @@ npm run preview
 <br>
 
 
-<strong>2 Data profils</strong>
+<strong>2 Data profils:</strong>
   - Cecilia: localhost:****/18
   - Karl: localhost:****/12

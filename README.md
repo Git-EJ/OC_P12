@@ -66,6 +66,6 @@ npm run preview
 
 <div align='center'>
 
- <img src="./src/assets/screenshot/screenshot_sportsee-userPage.pngg" alt="Sportsee userPage screenshot" title="Sportsee userPage screenshot" width="auto" height="auto"/>
+ <img src="./src/assets/screenshot/screenshot_sportsee-userPage.png" alt="Sportsee userPage screenshot" title="Sportsee userPage screenshot" width="auto" height="auto"/>
  
 </div>

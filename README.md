@@ -60,3 +60,12 @@ npm run preview
 <strong>2 Data profils:</strong>
   - Cecilia: localhost:****/18
   - Karl: localhost:****/12
+
+
+<strong>Screenshot:</strong>
+
+<div align='center'>
+
+ <img src="./src/assets/screenshot/screenshot_sportsee-userPage.pngg" alt="Sportsee userPage screenshot" title="Sportsee userPage screenshot" width="auto" height="auto"/>
+ 
+</div>
